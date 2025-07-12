@@ -11,13 +11,13 @@ a {
 
 body {
     /* font-family: 'JetBrains Mono Bold', monospace; */
-    background-color: #282C33;
+    background-color: #15171B;
 }
 
 header {
     max-width: 1440px;
     width: 100%;
-    height: auto;
+    height: 80px;
     /* position: fixed; */
     display: flex;
     flex-direction: row;
@@ -28,6 +28,13 @@ header {
     padding: 20px 0;
 }
 
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* behind content */
+}
+
 nav, ul {
     display: flex;
     flex-direction: row;
@@ -36,14 +43,97 @@ nav, ul {
     gap: 30px;
 }
 
-/* .title {
+.quarter-section {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid #fffafa;
+    font-family: 'JetBrains Mono Light', monospace;
+    font-size: 14px;
+    background-color: #363636;
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+    padding-left: 30px;
+}
+
+.quarter-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.quarter-section::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    top: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.quarter-section::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    width: 6px;
+    height: 6px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    top: 20px;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.4);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.title {
     max-width: 1440px;
     width: 90%;
     margin: 0 auto;
-    border: 1px red solid;
-    
+    font-family: 'JetBrains Mono Bold', monospace;
+    font-size: 3rem;
+    padding: 0 150px;
+    color: white;
+    margin-top: 50px;
+}
 
-} */
+.subtitle {
+    max-width: 1440px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 0 210px;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #CCCCCC;
+}
+  
 
 .navigation {
     /* border: 1px red solid; */
