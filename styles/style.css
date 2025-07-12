@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    /* font-family: 'JetBrains Mono Bold', monospace; */
+    background-color: #282C33;
+}
+
+header {
+    max-width: 1440px;
+    width: 100%;
+    height: auto;
+    /* position: fixed; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'JetBrains Mono Bold', monospace;
+    color: white;
+    padding: 20px 0;
+}
+
+nav, ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* .title {
+    max-width: 1440px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px red solid;
+    
+
+} */
+
+.navigation {
+    /* border: 1px red solid; */
+}
