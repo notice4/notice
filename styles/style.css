@@ -135,6 +135,64 @@ nav, ul {
 }
   
 
-.navigation {
-    /* border: 1px red solid; */
+/* .navigation {
+    border: 1px red solid;
+} */
+
+.skills-section {
+    max-width: 1250px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: rgba(30, 30, 30, 0.85);
+    color: #fff;
+    font-family: 'JetBrains Mono Bold', sans-serif;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    border-radius: 8px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.95);;
+    flex: 1 1 calc(33% - 40px);
+    box-sizing: border-box;
+    min-width: 280px;
+}
+
+.skill-category h3{
+    margin-top: 0;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.icons-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.skill-icon {
+    width: 48px; /* Adjust size of icons */
+    height: 48px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+.skill-icon:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
 }

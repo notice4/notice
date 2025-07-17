@@ -18,7 +18,7 @@ function typeWriter() {
   if (index < text.length) {
     animatedText.textContent += text.charAt(index);
     index++;
-    setTimeout(typeWriter, 80); // typing speed in ms
+    setTimeout(typeWriter, 80);
   }
 }
 
@@ -34,7 +34,7 @@ function typeSubtitle() {
   if (subtitleIndex < subtitleText.length) {
     animatedSubtitle.textContent += subtitleText.charAt(subtitleIndex);
     subtitleIndex++;
-    setTimeout(typeSubtitle, 40); // speed: smaller is faster
+    setTimeout(typeSubtitle, 40);
   }
 }
 
@@ -54,7 +54,7 @@ const canvas = document.getElementById('bgCanvas');
 
   function generatePoints() {
     points = [];
-    const count = Math.floor((width * height) / 7000); // density control
+    const count = Math.floor((width * height) / 7000);
     for (let i = 0; i < count; i++) {
       points.push({
         x: Math.random() * width,
@@ -78,7 +78,7 @@ const canvas = document.getElementById('bgCanvas');
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = '#61dafb'; // neon blue dot
+      ctx.fillStyle = '#61dafb';
       ctx.fill();
     });
 
@@ -91,7 +91,7 @@ const canvas = document.getElementById('bgCanvas');
         if (dist < 100) {
           const opacity = 1 - dist / 100;
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(97, 218, 251, ${opacity})`; // neon blue line
+          ctx.strokeStyle = `rgba(97, 218, 251, ${opacity})`;
           ctx.moveTo(points[i].x, points[i].y);
           ctx.lineTo(points[j].x, points[j].y);
           ctx.stroke();
@@ -106,3 +106,104 @@ const canvas = document.getElementById('bgCanvas');
   resizeCanvas();
   draw();
 
+
+// Tech Stack
+
+document.addEventListener('DOMContentLoaded', () => {
+    const techStack = [
+        {
+            title: 'Programming Languages',
+            icons: [
+                { name: 'python', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+                { name: 'javascript', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+                { name: 'mysql', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg' },
+                { name: 'oracle', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg' }
+            ]
+        },
+        {
+            title: 'Data Analysis & Manipulation',
+            icons: [
+                { name: 'pandas', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg' },
+                { name: 'numpy', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg' },
+                { name: 'matlab', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg'}
+            ]
+        },
+        {
+            title: 'Machine Learning',
+            icons: [
+                { name: 'scikitlearn', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg' }
+            ]
+        },
+        {
+            title: 'Data Visualization',
+            icons: [
+                { name: 'matplotlib', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg' }
+            ]
+        },
+        {
+            title: 'Databases & SQL Tools',
+            icons: [
+                { name: 'mysql', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg' },
+                { name: 'oracle', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg' },
+                { name: 'sqlalchemy', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original-wordmark.svg' },
+                { name: 'sqldeveloper', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg' }
+            ]
+        },
+        {
+            title: 'Web Development',
+            icons: [
+                { name: 'html5', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+                { name: 'css3', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+                { name: 'javascript', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' }
+            ]
+        },
+        {
+            title: 'Version Control',
+            icons: [
+                { name: 'git', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg' },
+                { name: 'github', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' }
+            ]
+        },
+        {
+            title: 'Development Tools & Environments',
+            icons: [
+                { name: 'jupyter', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg' },
+                { name: 'linux', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+                { name: 'docker', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg' },
+                { name: 'kaggle', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kaggle/kaggle-original-wordmark.svg' }
+            ]
+        }
+    ];
+
+    const skillsContainer = document.getElementById('skills-container');
+
+    techStack.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('skill-category');
+
+        const categoryTitle = document.createElement('h3');
+        categoryTitle.textContent = category.title;
+        categoryDiv.appendChild(categoryTitle);
+
+        const iconsWrapper = document.createElement('div');
+        iconsWrapper.classList.add('icons-wrapper');
+
+        category.icons.forEach(icon => {
+            const img = document.createElement('img');
+            img.src = icon.path;
+            img.alt = `${icon.name} icon`;
+            img.classList.add('skill-icon');
+            iconsWrapper.appendChild(img);
+
+            img.onerror = () => {
+                console.error(`Failed to load icon: ${icon.name} from ${icon.path}`);
+                img.style.filter = 'grayscale(100%)';
+            };
+        });
+
+
+
+        categoryDiv.appendChild(iconsWrapper);
+        skillsContainer.appendChild(categoryDiv);
+    });
+});
