@@ -40,6 +40,19 @@ function typeSubtitle() {
 
 typeSubtitle();
 
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href');
+      if (targetId.startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+          });
+      }
+  });
+});
+
+
 // Background Animation with Canvas | Graph-Data Style
 
 const canvas = document.getElementById('bgCanvas');
@@ -131,7 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'Machine Learning',
             icons: [
-                { name: 'scikitlearn', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg' }
+                { name: 'scikitlearn', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg' },
+                { name: 'tensorflow', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
+                { name: 'keras', path: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original-wordmark.svg' }
             ]
         },
         {
@@ -206,4 +221,65 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryDiv.appendChild(iconsWrapper);
         skillsContainer.appendChild(categoryDiv);
     });
+});
+
+// Projects Section
+
+// ---------- Projects Section ----------
+document.addEventListener('DOMContentLoaded', () => {
+  const projects = [
+      {
+          title: 'Project 1',
+          description: 'Project description goes here...',
+          github: 'https://github.com/yourname/sales-forecast',
+          demo: 'https://your-demo-link.com'
+      },
+      {
+          title: 'Project 2',
+          description: 'Project description goes here...',
+          github: 'https://github.com/yourname/churn-dashboard'
+      },
+      {
+          title: 'Project 3',
+          description: 'Project description goes here...',
+          github: 'https://github.com/yourname/data-cleaning'
+      }
+  ];
+
+  const projectsContainer = document.getElementById('projects-container');
+
+  projects.forEach(project => {
+      const card = document.createElement('div');
+      card.classList.add('project-card');
+
+      const title = document.createElement('h3');
+      title.textContent = project.title;
+
+      const desc = document.createElement('p');
+      desc.textContent = project.description;
+
+      const links = document.createElement('div');
+      links.classList.add('project-links');
+
+      if (project.github) {
+          const gitLink = document.createElement('a');
+          gitLink.href = project.github;
+          gitLink.target = '_blank';
+          gitLink.textContent = 'GitHub';
+          links.appendChild(gitLink);
+      }
+
+      if (project.demo) {
+          const demoLink = document.createElement('a');
+          demoLink.href = project.demo;
+          demoLink.target = '_blank';
+          demoLink.textContent = 'Live Demo';
+          links.appendChild(demoLink);
+      }
+
+      card.appendChild(title);
+      card.appendChild(desc);
+      card.appendChild(links);
+      projectsContainer.appendChild(card);
+  });
 });
